@@ -1,6 +1,6 @@
 FROM node:20
 EXPOSE 8080
-ENV DB_HOST="localhost"
+ENV DB_HOST="mysql"
 RUN useradd expense
 RUN mkdir /app
 WORKDIR /app
