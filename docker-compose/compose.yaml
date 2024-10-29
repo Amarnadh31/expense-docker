@@ -4,25 +4,25 @@ networks:
   expense:
 
 volumes:
-  mysql:
+  mysql:  #docker volume create my sql
 
 services:
   mysql:
-    image:
-    container_name:
+    image: amarnadh31/mysql:v1
+    container_name: mysql
     volume:
-      - mysql:/
+      - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
   
   backend:
-    image:
-    container_name:
+    image: amarnadh31/backend:v1
+    container_name: backend
     command: sh -c "sleep 10 && node /app/index.js "
     depends_on:
     - mysql
   
   frontend:
-    image:
-    container_name:
+    image: amarnadh31/frontend:v1
+    container_name: frontend
     ports:
       - "80:80"
     depends_on:
