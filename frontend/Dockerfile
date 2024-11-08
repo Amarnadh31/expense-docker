@@ -1,7 +1,18 @@
-FROM nginx
-RUN rm -rf /usr/share/nginx/html/*
+FROM nginx:mainline-alpine3.20-slim
+RUN rm -rf /usr/share/nginx/html/* && \
+    rm -rf /etc/nginx/nginx.conf && \
+    rm -rf /etc/nginx/conf.d
+RUN mkdir -p /var/cache/nginx/client_temp && \
+    mkdir -p /var/cache/nginx/proxy_temp && \
+    mkdir -p /var/cache/nginx/fastcgi_temp && \
+    mkdir -p /var/cache/nginx/uwsgi_temp && \
+    mkdir -p /var/cache/nginx/scgi_temp && \
+    chown -R nginx:nginx /var/cache/nginx && \
+    chown -R nginx:nginx /etc/nginx/ && \
+    chmod -R 755 /etc/nginx/ && \
+    chown -R nginx:nginx /var/log/nginx && \
+    chown -R nginx:nginx /var/run/nginx.pid /run/nginx.pid  
 COPY codes /usr/share/nginx/html
-RUN rm -rf /etc/nginx/nginx.conf
-RUN rm -rf /etc/nginx/conf.d
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY expense.conf /etc/nginx/default.d/expense.conf
+USER nginx
