@@ -1,7 +1,7 @@
 FROM nginx:mainline-alpine3.20-slim
 RUN rm -rf /usr/share/nginx/html/* && \
     rm -rf /etc/nginx/nginx.conf && \
-    rm -rf /etc/nginx/conf.d
+    rm -rf /etc/nginx/conf.d && \
 RUN mkdir -p /var/cache/nginx/client_temp && \
     mkdir -p /var/cache/nginx/proxy_temp && \
     mkdir -p /var/cache/nginx/fastcgi_temp && \
@@ -11,6 +11,7 @@ RUN mkdir -p /var/cache/nginx/client_temp && \
     chown -R nginx:nginx /etc/nginx/ && \
     chmod -R 755 /etc/nginx/ && \
     chown -R nginx:nginx /var/log/nginx && \
+RUN touch /var/run/nginx.pid && \
     chown -R nginx:nginx /var/run/nginx.pid /run/nginx.pid  
 COPY codes /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
