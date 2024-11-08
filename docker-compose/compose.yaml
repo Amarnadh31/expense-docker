@@ -21,7 +21,7 @@ services:
     - mysql
   
   frontend:
-    image: amarnadh31/frontend:v1
+    image: amarnadh31/frontend:v2
     container_name: frontend
     ports:
       - "80:80"
