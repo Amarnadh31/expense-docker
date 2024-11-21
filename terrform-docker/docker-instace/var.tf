@@ -21,6 +21,3 @@ variable "docker_tags" {
     }
   
 }
-
-variable "access_key" {}
-variable "secret_key" {}
