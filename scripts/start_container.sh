@@ -5,4 +5,4 @@ set -e
 docker pull amarnadh31/mysql
 
 # Run the Docker image as a container
-docker run -d amarnadh31/mysql
+docker run -d --name mysql amarnadh31/mysql 
