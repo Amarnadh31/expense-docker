@@ -17,6 +17,7 @@ COPY --from=builder /app /app
 USER expense
 CMD ["node", "index.js"]
 
+
 #before changes
 # FROM node:20
 # EXPOSE 8080
