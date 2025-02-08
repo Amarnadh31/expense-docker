@@ -3,4 +3,4 @@ set -e
 
 #stop the container
 
-containerid = 'docker ps | awk -F""
+docker stop $(docker ps -q) && docker rm -f $(docker ps -aq)
