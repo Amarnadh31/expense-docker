@@ -3,6 +3,8 @@ set -e
 
 #stop the container
 # Get the list of running containers
+export DOCKER_HOST="unix:///var/run/docker.sock"
+
 running_containers=$(docker ps -q)
 
 if [ -n "$running_containers" ]; then
