@@ -15,3 +15,4 @@ docker run -d -p 80:80 --name backend amarnadh31/backend
 docker pull amarnadh31/frontend
 
 docker run -d -p 80:80 --name frontend amarnadh31/frontend
+
