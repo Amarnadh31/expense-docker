@@ -10,8 +10,8 @@ docker run -d --name mysql amarnadh31/mysql
 docker pull amarnadh31/backend
 
 
-docker run -d --name mysql amarnadh31/backend
+docker run -d --name backend amarnadh31/backend
 
 docker pull amarnadh31/frontend
 
-docker run -d --name mysql amarnadh31/frontend
+docker run -d -p 8080:8080 --name frontend amarnadh31/frontend
